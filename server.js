@@ -16,7 +16,9 @@ app.get('/' , (req, res) => {
 app.get("/club", (req,res)=> {
     res.render("club/add_club")
 })
-
+app.get("/detail", (req,res)=> {
+    res.render("club/detail_club")
+})
 
 app.listen(3000,() => {
     console.log("서버 작동중...")
