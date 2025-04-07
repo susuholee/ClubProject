@@ -4,7 +4,7 @@
 
 const Sequelize = require('sequelize');
 const User = require('../models/users/users')
-// const Keyword = require('./userintrests');
+const Userintrest = require('./users/userintrests');
 // const Category = require('./categorys');
 // const Club = require('./clubs');
 // const Event = require('./events');
@@ -13,7 +13,6 @@ const User = require('../models/users/users')
 // const Member = require('./members');
 // const Participant = require('./participants');
 // const Point = require('./points');
-// const Userintrest = require('./userintrests');
 // const Verification = require('./verifications');
 // const Review = require('./reviews')
 
@@ -32,7 +31,7 @@ const sequelize = new Sequelize(
 
 
 const users = User.init(sequelize);
-// const userintrests = Userintrest.init(sequelize);
+const userintrests = Userintrest.init(sequelize);
 // const members = Member.init(sequelize);
 // const categorys = Category.init(sequelize);
 // const clubs = Club.init(sequelize);
@@ -46,7 +45,7 @@ const users = User.init(sequelize);
 
 const db = {
     Users : users,
-    // Userintrests : userintrests,
+    Userintrests : userintrests,
     // Members : members,
     // Categorys : categorys,
     // Clubs : clubs,
@@ -61,7 +60,7 @@ const db = {
 }
 
 users.associate(db)
-// userintrests.associate(db)
+userintrests.associate(db)
 // members.associate(db)
 // categorys.associate(db)
 // clubs.associate(db)
@@ -75,7 +74,7 @@ users.associate(db)
 
 
 
-sequelize.sync({force : false}).then(() => {
+sequelize.sync({force : true}).then(() => {
     console.log('database on~')
 }).catch(console.log)
 

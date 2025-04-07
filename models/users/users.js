@@ -8,11 +8,11 @@ class User extends Model {
             kakao_id : {type : DataTypes.STRING(20),primaryKey : true, allowNull : false},
             kakao_name : {type : DataTypes.STRING(20), allowNull : false},
             kakao_profile_image : {type : DataTypes.STRING(200), allowNull : false},
-            age : {type : DataTypes.STRING, allowNull : false},
-            gender : {type : DataTypes.STRING(20), allowNull : false},
-            introduction : {type : DataTypes.STRING(200), allowNull : false},
-            latitude : {type : DataTypes.STRING, allowNull : false},
-            longitude : {type : DataTypes.STRING, allowNull : false}
+            age : {type : DataTypes.STRING},
+            gender : {type : DataTypes.STRING(20)},
+            introduction : {type : DataTypes.STRING(200)},
+            latitude : {type : DataTypes.STRING},
+            longitude : {type : DataTypes.STRING}
         }, {
             sequelize,
             timestamps : true,
@@ -23,8 +23,8 @@ class User extends Model {
         })
     }
     static associate(models) {
+        models.Users.hasMany(models.Userintrests, {foreignKey : 'user_id_fk', sourceKey : 'kakao_id'})
         // models.Users.hasMany(models.Points, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
-        // models.Users.hasMany(models.Userintrests, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
         // models.Users.hasMany(models.Clubs, {foreignkey : 'user_id_fk', sourceKey : 'uid'})
         // models.Users.hasMany(models.Reviews, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
         // models.Users.hasMany(models.Hearts, {foreignKey : 'user_id_fk', sourceKey : 'uid'})

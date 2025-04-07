@@ -6,7 +6,7 @@ const router = require('express').Router();
 const axios = require('axios');
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser');
-const {Createuser} = require('../controllers/mypage.controller')
+const {Createuser, Finduser, Updatecategory} = require('../controllers/mypage.controller')
 
 
 
@@ -61,15 +61,12 @@ router.get('/auth/kakao/callback', async(req, res) => {
 })
 router.get('/', async (req, res) => {
     try{
-        const {data} = getUserintrest();
-        if(data) {
-            const {login_access_token} = req.cookies;
-            const {id, properties} = jwt.verify(login_access_token, process.env.TOKEN)
-            res.render('main/main', {data : properties, uuid : id})
-        }
-        else {
-            res.render('mypage/userintrest')
-        }
+        
+        const {login_access_token} = req.cookies;
+        const {id, properties} = jwt.verify(login_access_token, process.env.TOKEN)
+        const data = await Createuser(id, properties.nickname, properties.profile_image)
+        res.render('main/main', {data : properties, uuid : id})
+  
     }
     catch(error) {
         console.log('error')
@@ -77,15 +74,16 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/mypage', (req, res) => {
+router.get('/mypage', async (req, res) => {
     try{
-        console.log(req.cookies)
         const {login_access_token} = req.cookies;
         const {id, properties} = jwt.verify(login_access_token, process.env.TOKEN)
-        res.render('mypage/mypage', {data : properties, uuid : id})
+        const {dataValues : Userdata} = await Finduser(id)
+        console.log(Userdata, 'asdfasdfs')
+        res.render('mypage/mypage', {data : properties, uuid : id, Userdata})
     }
     catch(error) {
-        console.log('error')
+        console.log('error', error)
         res.render('main/main', {data : null})
     }
 })
@@ -99,7 +97,7 @@ router.get('/logout', (req, res) => {
     res.redirect(kakao_logout)
 })
 router.get('/auth/kakao/logout/callback', (req, res) => {
-    console.log('hello')
+    // console.log('hello')
     res.clearCookie('login_access_token')
     res.clearCookie('kakao_access_token')
     res.redirect('/')
@@ -113,11 +111,32 @@ router.post('/Updateuserdetail', async (req, res) => {
     const {login_access_token} = req.cookies;
     const {id, properties} = jwt.verify(login_access_token, process.env.TOKEN)
     const {nickname, profile_image} = properties;
-    console.log(id, nickname, profile_image)
+    // console.log(id, nickname, profile_image)
     const { agevalue, gendervalue, longitudevalue, latitudevalue, contentvalue} = req.body;
     const data = await Createuser(id, nickname, profile_image, agevalue, gendervalue, contentvalue, latitudevalue,  longitudevalue );
-    console.log(data)
+    console.log(data, 'router')
     res.json(data)
+    
 })
 
+router.get('/Userintrest', (req, res) => {
+    res.render('mypage/userintrest')
+})
+
+router.post('/Updatecategory', async (req, res) => {
+    const {login_access_token} = req.cookies;
+    const {id} = jwt.verify(login_access_token, process.env.TOKEN)
+    console.log(id)
+    const {userdata} = req.body;
+    console.log(userdata, 'asdf')
+    try {
+        for (let i = 0; i < userdata.length; i++) {
+            const data = await Updatecategory(id, userdata[i])
+            console.log(data)
+        }
+        res.json('dd')
+    } catch (error) {
+        res.json(error)
+    }
+})
 module.exports = router

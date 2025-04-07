@@ -39,24 +39,23 @@
                         <span>레벨 : 1</span>
                     </li>
                     <li>
-                        <span>나이 : </span>
-                        <span>성별 : </span>
+                        <span>나이 : <%= Userdata.age %> </span>
+                        <span>성별 : <%= Userdata.gender %></span>
                     </li>
+                
                     <li>
                         <span>동호회 멤버 : </span>
-                        <a href="/Edituser" id="Edituser">정보 수정</a>
+                        <div id="Edit">
+                            <a href="/Edituser" id="Edituser">정보 수정</a>
+                            <a href="/Userintrest" id="Userintrest">관심 분야</a>
+                        </div>
                     </li>
                 </ul>
             </div>
             <div id="Introduction">
                 자기소개 : 
                 <p>
-                    A "story" is a narrative account of real or imagined events, often told for entertainment, education, or cultural preservation, and can be shared orally, written, or through other media.
-Here's a more detailed explanation:
-Definition:
-A story is a narrative, or a series of related events or experiences, whether fictional or non-fictional. 
-
-
+                    <%= Userdata.introduction %>
                 </p>
             </div>
             <ul id="Contentul">
