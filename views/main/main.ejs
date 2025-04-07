@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/public/css/main/main.css">
 </head>
 <body>
-    <%- include("../common/header") %>
-    메인 페이지
-    <%- include("../common/side_bar") %>
-    <%- include("../common/footer") %>
+  <%- include("../common/header") %>
+  <div class="wrap">
+    <div class="map-container">
+      <div id="map">
+        <div class="map_category_bar">
+          <button class="category-btn">회원이 많은 순</button>
+          <button class="category-btn">즐겨찾기 많이 된 순</button>
+          <button class="category-btn">리뷰가 많은</button>
+          <button class="category-btn">모임이 잦은</button>
+          <button class="category-btn">활발한</button>
+          <button class="category-btn">지역 단위</button>
+          <button class="category-btn">광역 단위</button>
+        </div>
+      </div>
+      <div class="map-right-content">
+        <div class="content-box">컨텐츠 1</div>
+        <div class="content-box">컨텐츠 2</div>
+        <div class="content-box">컨텐츠 3</div>
+        <div class="content-box">컨텐츠 4</div>
+      </div>
+    </div>
+  </div>
+  <%- include("../common/side_bar") %>
+  <%- include("../common/footer") %>
 </body>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b809f71776d66974e4cb1caee3375cea"></script>
+<script src="/public/script/main/main.js"></script>
 </html>

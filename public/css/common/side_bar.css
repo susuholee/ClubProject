@@ -10,15 +10,15 @@ a {
     position: absolute;
     left: 0;
     top: 60px;
-    width: 240px;
+    width: 200px;
     background-color: #ffffff;
     color: rgb(17, 17, 17);
-    padding-top: 20px;
     box-shadow: 3px 2px 4px rgba(1, 0, 2, 0.1);
-    height: auto; 
-    min-height: calc(100% - 60px);
-    overflow-y: visible;
+    height: calc(100vh - 55px);
+    overflow-y: auto; 
+    z-index: 1;
 }
+
 
 .sidebar ul {
     list-style: none;
