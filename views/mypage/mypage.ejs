@@ -1,0 +1,75 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="/public/css/common/header.css">
+    <link rel="stylesheet" href="/public/css/mypage/mypage.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="/public/images/logo.png" alt="로고">
+            <a href="/">동호회</a>
+        </div>
+        <ul>
+            <!-- <a href="/login" id="alogin">로그인</a> -->
+            <div>
+                <a href="/logout" id="alogout">로그아웃</a>
+            </div>
+        </ul>
+    </header>
+    <div id="Bodywrap">
+        <div id="Bodycontent">
+
+            <div id="Userinfo">
+                <img src="<%= data.profile_image %>" alt="">
+                <ul id="Userul">
+                    <li>아이디 : <%= uuid %></li>
+                    <li>
+                        <span>이름 : <%= data.nickname %></span>                      
+                        <span>레벨 : 1</span>
+                    </li>
+                    <li>
+                        <span>나이 : </span>
+                        <span>성별 : </span>
+                    </li>
+                    <li>
+                        <span>동호회 멤버 : </span>
+                        <a href="/Edituser" id="Edituser">정보 수정</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="Introduction">
+                자기소개 : 
+                <p>
+                    A "story" is a narrative account of real or imagined events, often told for entertainment, education, or cultural preservation, and can be shared orally, written, or through other media.
+Here's a more detailed explanation:
+Definition:
+A story is a narrative, or a series of related events or experiences, whether fictional or non-fictional. 
+
+
+                </p>
+            </div>
+            <ul id="Contentul">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        
+    </div>
+</body>
+<script>
+
+</script>
+</html>
