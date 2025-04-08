@@ -7,6 +7,30 @@
   <link rel="stylesheet" href="/public/css/main/main.css">
 </head>
 <body>
+  
+  <div id="loading">
+    <img src="/public/images/logo.png" alt="스쿱" id="club_logo" />
+  
+    <div class="loader">
+      <div class="loading-text">
+        스쿱에 오신것을 환영합니다
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+  
+      <div class="loading-bar-background">
+        <div class="loading-bar">
+          <div class="white-bars-container">
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <%- include("../common/header") %>
   <div class="wrap">
     <div class="map-container">
@@ -21,11 +45,23 @@
           <button class="category-btn">광역 단위</button>
         </div>
       </div>
+      
       <div class="map-right-content">
-        <div class="content-box">컨텐츠 1</div>
-        <div class="content-box">컨텐츠 2</div>
-        <div class="content-box">컨텐츠 3</div>
-        <div class="content-box">컨텐츠 4</div>
+        <div class="content-box">
+          <img src="/" alt="동호회 이미지" />
+          <h3>동호회 이름</h3>
+        </div>
+        
+        <div class="content-box">
+          <img src="/" alt="동호회 이미지" />
+          <h3>동호회 이름</h3>
+        </div>
+        
+        <div class="content-box">
+          <img src="/" alt="동호회 이미지" />
+          <h3>동호회 이름</h3>
+        </div>
+        
       </div>
     </div>
   </div>

@@ -15,9 +15,10 @@ a {
     color: rgb(17, 17, 17);
     box-shadow: 3px 2px 4px rgba(1, 0, 2, 0.1);
     height: calc(100vh - 55px);
-    overflow-y: auto; 
+    overflow-y: auto;
     z-index: 1;
 }
+
 
 
 .sidebar ul {

@@ -1,3 +1,49 @@
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+        const loading = document.getElementById("loading");
+        if (loading) loading.style.display = "none";
+      }, 2000); 
+
+
+    const loadingScreen = document.getElementById("loading-screen");
+    const logo = document.getElementById("club_logo");
+  
+    // 로고 애니메이션 (로딩 시작 시 로고가 나타나도록)
+    const logoAnimation = logo.animate(
+      [
+        { opacity: 0, transform: "scale(0.8)" },
+        { opacity: 1, transform: "scale(1)" },
+      ],
+      {
+        duration: 1500,
+        easing: "ease",
+        fill: "forwards",
+      }
+    );
+  
+  
+    // 로딩 화면 스크린 동작
+    const loadingScreenAnimation = loadingScreen.animate(
+      [
+        { transform: "translateY(100vh)", opacity: 1 },
+        { transform: "translateY(0)", opacity: 0 },
+      ],
+      {
+        duration: 2000,
+        delay: 1200,
+        easing: "ease",
+        fill: "forwards",
+      }
+    );
+  
+    loadingScreenAnimation.onfinish = () => {
+      document.getElementById("loading").style.display = "none";
+    };
+    
+})  
+
+
 const mapContainer = document.getElementById('map');
 const defaultLat = 37.5443765;
 const defaultLng = 127.1276202;
@@ -34,3 +80,11 @@ if (navigator.geolocation) {
 } else {
     alert("이 브라우저는 위치 정보를 지원하지 않습니다.");
 }
+
+
+
+
+
+
+
+
