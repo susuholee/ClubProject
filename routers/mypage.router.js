@@ -6,7 +6,7 @@ const router = require('express').Router();
 const axios = require('axios');
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser');
-const {Createuser, Finduser, Updatecategory} = require('../controllers/mypage.controller')
+const {Createuser, Finduser, Updatecategory, Finduserintrest, Deleteuserintrest} = require('../controllers/mypage.controller')
 
 
 
@@ -123,18 +123,32 @@ router.get('/Userintrest', (req, res) => {
     res.render('mypage/userintrest')
 })
 
-router.post('/Updatecategory', async (req, res) => {
+router.post('/Updateuserintrest', async (req, res) => {
     const {login_access_token} = req.cookies;
     const {id} = jwt.verify(login_access_token, process.env.TOKEN)
     console.log(id)
     const {userdata} = req.body;
     console.log(userdata, 'asdf')
+    const [finddata] = await Finduserintrest(id)
     try {
-        for (let i = 0; i < userdata.length; i++) {
-            const data = await Updatecategory(id, userdata[i])
-            console.log(data)
+        if(finddata) {
+            console.log( 'finduser')
+            await Deleteuserintrest(id)
+            for (let i = 0; i < userdata.length; i++) {
+                const data = await Updatecategory(id, userdata[i])
+                // console.log(data)
+                console.log('if')
+                
+            }
         }
-        res.json('dd')
+        else {
+            
+            for (let i = 0; i < userdata.length; i++) {
+                const data = await Updatecategory(id, userdata[i])
+                console.log(data, 'for')
+            }
+        }
+        res.json({state : 200, message : '추가 완료'})
     } catch (error) {
         res.json(error)
     }

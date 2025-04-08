@@ -1,6 +1,6 @@
 
-const {Users, Userintrests} = require('../models/configs');
-const Userintrest = require('../models/users/userintrests');
+const {Users, Userintrests} = require('../models1/configs1');
+// const Userintrest = require('../models/users/userintrests');
 
 
 const Createuser = async ( kakao_id1, kakao_name1, kakao_profile_image1, age1, gender1, introduction1, latitude1, longitude1) => {
@@ -31,11 +31,20 @@ const Finduser = async (uid) => {
     return data;
 }
 
+const Finduserintrest = async (uid) => {
+    const data = await Userintrests.findAll({where : {uid}})
+    console.log(data, 'find')
+    return data
+}
+const Deleteuserintrest = async (uid) => {
+    const data = await Userintrests.destroy({where : {uid}})
+    return ( 'delete')
+}
 const Updatecategory = async (id, content) => {
     console.log(id, content)
     try {
         
-        const data = await Userintrest.create({uid : id , category_name : content})
+        const data = await Userintrests.create({uid : id , category_name : content})
         console.log(data)
     } catch (error) {
         console.log(error)
@@ -44,4 +53,4 @@ const Updatecategory = async (id, content) => {
 }
 
 
-module.exports = {Createuser, Finduser, Updatecategory}
+module.exports = {Createuser, Finduser, Updatecategory, Finduserintrest, Deleteuserintrest}

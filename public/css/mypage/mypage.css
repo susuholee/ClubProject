@@ -12,12 +12,17 @@ a {
     color: black;
 }
 input { 
-    height: 25px;
-    border-radius: 7px;
+    height: 35px;
+    border-radius: 4px;
     outline: none;
     padding: 5px 10px ;
     box-sizing: border-box;
-    border: 1px solid;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    
+}
+#gender input {
+    box-shadow: none;
 }
 
 #loginwrap {
@@ -65,14 +70,14 @@ input {
 }
 
 #Bodycontent {
-    width: 800px;
-    background-color: rgb(188, 190, 190);
+    width: 1000px;
+    background-color: rgb(247, 247, 247);
 }
 
 #Userinfo {
-    width: 800px;
+    width: 1000px;
     height: 150px;
-    background-color: rgb(194, 201, 199);
+    background-color: #f3e8cd;
     padding: 10px 50px;
     display: flex;
     align-items: center;
@@ -80,18 +85,49 @@ input {
 }
 
 #Introduction  {
-    width: 800px;
-    min-height: 50px;
-    /* background-color: rgb(164, 168, 167); */
+    width: 1000px;
+    min-height: 70px;
+    background-color: #f3e8cd;
     padding: 10px 50px;
     box-sizing: border-box;
 }
 #Contentul  {
-    width: 800px;
+    width: 1000px;
     min-height: 200px;
-    background-color: rgb(143, 146, 145);
-    padding: 5px 50px;
+    background-color: rgb(247, 247, 247);
+    padding: 10px 50px;
     box-sizing: border-box;
+    /* display: flex; */
+}
+#Contentul img{
+
+    border-radius: 7px;
+    /* border: 1px solid; */
+    margin-right: 30px;
+    width: 300px;
+    height: 150px;
+}
+#Contentul li {
+    width: 400px;
+    /* height: 200px; */
+}
+
+.Contentli {
+    
+    display: flex;
+}
+.Contentli ul {
+    padding: 10px 0 ;
+}
+.Contentli li {
+    
+    height: 35px;
+}
+
+.clubinfo {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #Userinfo img {
@@ -156,21 +192,21 @@ p {
 }
 #Userdetaildiv {
     
-    width: 400px;
-    height: 500px;
+    width: 700px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
     /* border: 1px solid; */
     border-radius: 10px;
     background-color: rgb(248, 248, 248);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
 }
 
 #Userdetailform {
-    /* width: 350px; */
-    height: 500px;
+    width: 500px;
+    height: 700px;
     padding: 50px 0 ;
     display: flex;
     flex-direction: column;
@@ -178,12 +214,17 @@ p {
 }
 #Userdetailform button {
     width: 80px;
-    height: 25px;
+    height: 35px;
     border-radius: 5px;
     border: 1px solid;
     
 }
-
+#locationbtn {
+    width: 120px !important ;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid;
+}
 #Userdetailform button:hover {
     background-color: rgb(197, 197, 197);
 }
@@ -199,13 +240,15 @@ p {
 
 
 textarea {
-    padding: 5px;
-    width: 200px;
-    height: 70px;
+    padding: 10px;
+    width: 500px;
+    height: 120px;
     resize: none;
     box-sizing: border-box;
     outline: none;
     border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);;
 }
 
 #gender {
@@ -221,16 +264,26 @@ textarea {
     flex-direction: column;
     align-items: center;
 }
+#userintrestdiv {
+    width: 700px;
+    height: 700px;
+    border-radius: 7px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
 
 #Userintrestul {
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
 }
 
 #Userintrestul li {
-    margin: 8px 10px;
+    margin: 8px 35px;
     width: 180px;
     height: 40px;
     border: 1px solid rgb(209, 201, 198);
@@ -250,12 +303,14 @@ textarea {
 }
 
 h1 {
+    margin-top: 20px;
     font-size: 26px;
+    box-sizing: border-box;
 }
 
 #Userintrestul button {
     margin-top: 30px;
-    margin: 30px 25px;
+    margin: 30px 50px;
     width: 150px;
     height: 40px;
 }
@@ -263,3 +318,5 @@ h1 {
 .active {
     background: linear-gradient(40deg, #ffe5b7, #ffcc6e);
 }
+
+

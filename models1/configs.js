@@ -2,19 +2,19 @@ require('dotenv').config();
 const Sequelize = require('sequelize');
 
 // 모델 import
-const User = require('./users');
-const UserInterest = require('./userintrests');
-const Category = require('./categorys');
-const Club = require('./clubs');
-const Event = require('./events');
-const Heart = require('./hearts');
-const ClubLocation = require('./locations');
-const ClubMember = require('./members');
-const EventParticipant = require('./participants');
-const Point = require('./points');
-const Verification = require('./verifications');
-const Review = require('./reviews');
-const ClubTag = require('./club_tags');
+const User = require('./users/users2');
+const UserInterest = require('./users/userintrests1');
+const Category = require('./categorys/categories');
+const Club = require('./clubs/clubs');
+const Event = require('./event/events');
+const Heart = require('./clubs/club_hearts');
+const ClubLocation = require('./clubs/club_locations');
+const ClubMember = require('./clubs/club_members');
+const EventParticipant = require('./event/event_participants');
+const Point = require('./users/points');
+const Verification = require('./event/verifications');
+const Review = require('./community/reviews');
+const ClubTag = require('./clubs/club_tags');
 
 // Sequelize 연결
 const sequelize = new Sequelize(
@@ -47,9 +47,6 @@ const ClubTagModel = ClubTag.init(sequelize);
 const db = {
     User: UserModel,
     UserInterest: UserInterestModel,
-    Category: CategoryModel,
-    Club: ClubModel,
-    Event: EventModel,
     Heart: HeartModel,
     ClubLocation: ClubLocationModel,
     ClubMember: ClubMemberModel,
@@ -60,6 +57,9 @@ const db = {
     ClubTag: ClubTagModel,
     sequelize
 };
+    // Category: CategoryModel,
+    // Club: ClubModel,
+    // Event: EventMode
 
 // 관계 설정
 UserModel.associate(db);
