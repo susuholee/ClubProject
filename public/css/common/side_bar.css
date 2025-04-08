@@ -61,6 +61,7 @@ a {
     padding: 6px 10px;
     border-radius: 5px;
     white-space: nowrap;
+    pointer-events: none;
 }
 
 
