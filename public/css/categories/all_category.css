@@ -109,6 +109,8 @@ body {
   
   .recommend-search-bar {
     display: flex;
+
+    
   }
   
   .recommend-search-bar input {
