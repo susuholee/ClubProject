@@ -4,12 +4,13 @@ const { DataTypes, Model} = require('sequelize');
 class User extends Model {
     static init(sequelize) {
         return super.init({
-            kakao_uid : {type : DataTypes.STRING(20), allowNull : false, primaryKey: true },
-            name : {type : DataTypes.STRING(20), allowNull : false},
-            profile_image : {type : DataTypes.STRING(200), allowNull : false},
+            uid : {type : DataTypes.STRING(20),primaryKey : true, allowNull : false},
+            kakao_id : {type : DataTypes.STRING(20), allowNull : false},
+            kakao_name : {type : DataTypes.STRING(20), allowNull : false},
+            kakao_profile_image : {type : DataTypes.STRING(200), allowNull : false},
             age : {type : DataTypes.INTEGER(20), allowNull : false},
             gender : {type : DataTypes.STRING(20), allowNull : false},
-            introduction : {type : DataTypes.STRING(200), allowNull : false},
+            introduction : {type : DataTypes.INTEGER(200), allowNull : false},
             major_location : {type : DataTypes.STRING(120), allowNull : false}
   
         }, {
@@ -22,12 +23,12 @@ class User extends Model {
         })
     }
     static associate(models) {
-        models.User.hasMany(models.Point, {foreignKey : 'user_id', sourceKey : 'kakao_uid'})
-        models.User.hasMany(models.UserInterest, {foreignKey : 'user_id', sourceKey : 'kakao_uid'})
-        models.User.hasMany(models.Club, {foreignKey : 'user_id', sourceKey : 'kakao_uid'})
-        models.User.hasMany(models.Review, {foreignKey : 'user_id', sourceKey : 'kakao_uid'})
-        models.User.hasMany(models.Heart, {foreignKey : 'user_id', sourceKey : 'kakao_uid'})
-        models.User.hasMany(models.EventParticipant, {foreignKey : 'user_id', sourceKey : 'kakao_uid'})
+        models.Users.hasMany(models.Points, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
+        models.Users.hasMany(models.Userintrests, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
+        models.Users.hasMany(models.Clubs, {foreignkey : 'user_id_fk', sourceKey : 'uid'})
+        models.Users.hasMany(models.Reviews, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
+        models.Users.hasMany(models.Hearts, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
+        models.Users.hasMany(models.Events, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
         // models.Users.hasMany(models.Members, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
         // models.Users.hasMany(models.Categorys, {foreignKey : 'user_id_fk', sourceKey : 'uid'})
         // models.Users.hasMany(models.Locations, {foreignKey : 'user_id_fk', sourceKey : 'uid'})

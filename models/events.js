@@ -1,4 +1,8 @@
 
+
+
+
+
 const {DataTypes, Model} = require('sequelize');
 
 
@@ -9,8 +13,8 @@ class Event extends Model {
             club_id : {type : DataTypes.STRING(20), allowNull : false},
             title : {type : DataTypes.STRING(20), allowNull : false},
             content : {type : DataTypes.STRING(20), allowNull : false},
-            start_date: { type: DataTypes.DATE, allowNull: false },
-            end_date: { type: DataTypes.DATE, allowNull: false },
+            start_date : {type : DataTypes.INTEGER(10)},
+            end_date : {type : DataTypes.INTEGER(10)},
             location : {type : DataTypes.STRING(200), allowNull : false},
             guest_allow : {type : DataTypes.INTEGER(20), allowNull : false},
             max_participants : {type : DataTypes.INTEGER(20), allowNull : false}
@@ -25,9 +29,9 @@ class Event extends Model {
         })
     }
     static associate(models) {
-        models.Event.hasMany(models.EventParticipant, {foreignKey : 'event_id', sourceKey : 'id'})
-        models.Event.hasMany(models.Verification, {foreignKey : 'event_id', sourceKey : 'id'})
-        models.Event.belongsTo(models.Club, {foreignKey : 'club_id', targetKey : 'club_id', onDelete : 'CASCADE'})
+        models.Events.hasMany(models.Participants, {foreignKey : 'participants_id_fk', sourceKey : 'id'})
+        models.Events.hasMany(models.Verifications, {foreignKey : 'verifications_id_fk', sourceKey : 'id'})
+        models.Events.belongsTo(models.Clubs, {foreignKey : 'club_id_fk', target : 'club_id', onDelete : 'CASCADE'})
     }
 }
 
