@@ -5,9 +5,6 @@ class Review extends Model {
     static init(sequelize) {
         return super.init({
             id  : {type : DataTypes.STRING(20),primaryKey : true , allowNull : false},
-            user_id: { type: DataTypes.STRING(20), allowNull: false },
-            club_id: { type: DataTypes.STRING(20), allowNull: false },
-            event_id: { type: DataTypes.STRING(20), allowNull: false },
             content : {type : DataTypes.STRING(200), allowNull : false },
             star : {type : DataTypes.INTEGER(10)}
 
@@ -21,7 +18,7 @@ class Review extends Model {
         })
     }
     static associate(models) {
-        models.Review.belongsTo(models.User, {foreignKey : 'user_id', target : 'uid', onDelete : 'CASCADE'})
+        models.Reviews.belongsTo(models.Users, {foreignKey : 'user_id_fk', target : 'uid', onDelete : 'CASCADE'})
 
     }
 }

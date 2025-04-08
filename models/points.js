@@ -1,12 +1,13 @@
 
+
+
 const {DataTypes, Model} = require('sequelize');
 
 
 class Point extends Model {
     static init(sequelize) {
         return super.init({
-            user_id: {type: DataTypes.STRING(20),allowNull: false,primaryKey: true},
-            point : {type : DataTypes.INTEGER, allowNull : false ,defaultValue: 0 },
+            point : {type : DataTypes.INTEGER(200), allowNull : false ,primaryKey : true},
 
         }, {
             sequelize,
@@ -18,7 +19,8 @@ class Point extends Model {
         })
     }
     static associate(models) {
-        models.Point.belongsTo(models.User, {foreignKey : 'user_id', targetKey : 'uid', onDelete : 'CASCADE'})
+        models.Points.belongsTo(models.Users, {foreignKey : 'user_id_fk', target : 'uid', onDelete : 'CASCADE'})
+        
     }
 }
 

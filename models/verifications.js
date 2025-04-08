@@ -5,9 +5,7 @@ const {DataTypes, Model} = require('sequelize');
 class Verification extends Model {
     static init(sequelize) {
         return super.init({
-            event_id: {
-            type: DataTypes.STRING(20),allowNull: false,primaryKey: true},
-            participant_id : {type : DataTypes.STRING(20),primaryKey : true, allowNull : false},
+            proof_id : {type : DataTypes.STRING(20),primaryKey : true, allowNull : false},
             image : {type : DataTypes.STRING(200), allowNull : false}
         }, {
             sequelize,
@@ -19,7 +17,8 @@ class Verification extends Model {
         })
     }
     static associate(models) {
-        models.Verification.belongsTo(models.Event, {foreignKey : 'event_id', targetKey : 'id', onDelete : 'CASCADE'})
+        models.Verifications.belongsTo(models.Events, {foreignKey : 'verifications_id_fk', target : 'id', onDelete : 'CASCADE'})
+
     }
 }
 
