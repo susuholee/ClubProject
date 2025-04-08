@@ -1,5 +1,5 @@
 
-const {Users, Userintrests} = require('../models1/configs1');
+const {Users, Userintrests, sequelize} = require('../models1/configs1');
 // const Userintrest = require('../models/users/userintrests');
 
 
@@ -43,7 +43,7 @@ const Deleteuserintrest = async (uid) => {
 const Updatecategory = async (id, content) => {
     console.log(id, content)
     try {
-        
+        await sequelize.query('ALTER TABLE userintrests AUTO_INCREMENT = 1')
         const data = await Userintrests.create({uid : id , category_name : content})
         console.log(data)
     } catch (error) {

@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
 
 }
 
@@ -76,22 +76,24 @@ input {
 
 #Userinfo {
     width: 1000px;
+
     height: 150px;
-    background-color: #f3e8cd;
+    background-color: #f1efe6;
     padding: 10px 50px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    
 }
 
 #Introduction  {
     width: 1000px;
     min-height: 70px;
-    background-color: #f3e8cd;
+    background-color: #f1efe6;
     padding: 10px 50px;
     box-sizing: border-box;
 }
-#Contentul  {
+.Contentul  {
     width: 1000px;
     min-height: 200px;
     background-color: rgb(247, 247, 247);
@@ -142,29 +144,31 @@ input {
 }
 
 #Userul li {
-    width: 560px;
+    width: 760px;
     padding: 3px 8px;
     box-sizing: border-box;
+    /* font-size: 24px; */
 }
 
 #Userul li:nth-child(2) span:nth-child(1){
     display: inline-block;
-    width: 250px;
+    width: 350px;
     box-sizing: border-box;
 }
 
 #Userul li:nth-child(3) span:nth-child(1){
     display: inline-block;
-    width: 250px;
+    width: 350px;
     box-sizing: border-box;
 }
 #Userul a {
     width: 70px;
+    height: 20px;
     display: flex;
     justify-content: center;
     border: 1px solid;
     border-radius: 5px;
-    background-color: rgb(117, 185, 126);
+    background-color: rgb(157, 211, 164);
 }
 
 p {
