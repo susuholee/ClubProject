@@ -1,0 +1,25 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.651vw 1.302vw;
+    background-color: white;
+    box-shadow: 0 0.13vw 0.326vw rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    z-index: 1000;
+}
+
+
+header div {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    height: 5.859vw;
+    width: 5.859vw;
+}
